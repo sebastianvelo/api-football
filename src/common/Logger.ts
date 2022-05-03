@@ -40,3 +40,7 @@ export const logSubtitle = (message: any) => {
 export const logInfo = (message: any) => {
     log(message, "cyan", "n");
 };
+
+export const logAccent = (message: any) => {
+    log(message, "magenta", "n");
+}

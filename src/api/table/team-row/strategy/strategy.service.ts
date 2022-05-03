@@ -1,12 +1,12 @@
 import { CheerioAPI } from "cheerio";
-import * as ScrappingStrategyService from "../../../strategy/scrapping-strategy.service";
-import WikipediaSortableScrappingStrategy from "./impl/WikipediaSortableScrappingStrategy";
-import WikipediaStaticScrappingStrategy from "./impl/WikipediaStaticScrappingStrategy";
-import TeamRowScrappingStrategy from "./strategy.interface";
+import * as ScrapingStrategyService from "../../../strategy/scraping-strategy.service";
+import SortableTableScrapingStrategy from "./impl/SortableTableScrapingStrategy";
+import StaticTableScrapingStrategy from "./impl/StaticTableScrapingStrategy";
+import TeamRowScrapingStrategy from "./strategy.interface";
 
-const strategies: TeamRowScrappingStrategy[] = [
-    new WikipediaStaticScrappingStrategy(),
-    new WikipediaSortableScrappingStrategy()
+const strategies: TeamRowScrapingStrategy[] = [
+    new StaticTableScrapingStrategy(),
+    new SortableTableScrapingStrategy()
 ];
 
-export const getStrategy = (query: string, $: CheerioAPI) => ScrappingStrategyService.getScrappingStrategy(strategies, query, $);
+export const getStrategy = (query: string, $: CheerioAPI) => ScrapingStrategyService.getStrategy(strategies, query, $);

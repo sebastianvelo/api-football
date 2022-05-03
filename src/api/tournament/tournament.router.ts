@@ -7,7 +7,7 @@ const tournamentRouter = express.Router();
 
 tournamentRouter.get("/:query", async (req: Request, res: Response) => {
     const query: string = req.params.query;
-    logTitle(`Retrieve dates from ${query}`);
+    logTitle(`Init getting tournament: ${query}`);
 
     try {
         const response: Tournament = await TournamentService.getTournament(query);

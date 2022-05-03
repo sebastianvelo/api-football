@@ -28,7 +28,7 @@ export const getMatch = (response: MatchResponse): Match => {
     }
 };
 
-export const getMatches = (response: MatchResponse[]): Match[] => response.map(getMatch);
+export const getMatchesFromResponse = (response: MatchResponse[]): Match[] => response.map(getMatch);
 
-export const parseMatch = (row: string): MatchResponse => row.replace("\n", "").split("\n\n").map(i => i.replace("\n", "")) as MatchResponse;
+export const getMatchResponseFromString = (row: string): MatchResponse => row.replace("\n", "").split("\n\n").map(i => i.replace("\n", "")) as MatchResponse;
 

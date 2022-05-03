@@ -1,6 +1,6 @@
-import ScrappingStrategy from "../../../strategy/scrapping-strategy.interface";
+import ScrapingStrategy from "../../../strategy/scraping-strategy.interface";
 import TeamRow from "../team-row.interface";
 
-interface TeamRowScrappingStrategy extends ScrappingStrategy<TeamRow[]> { }
+interface TeamRowScrapingStrategy extends ScrapingStrategy<TeamRow[]> { }
 
-export default TeamRowScrappingStrategy;
+export default TeamRowScrapingStrategy;

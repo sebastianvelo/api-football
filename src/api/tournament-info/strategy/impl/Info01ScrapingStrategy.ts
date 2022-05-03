@@ -1,8 +1,8 @@
 import { CheerioAPI } from "cheerio";
 import TournamentInfo from "../../tournament-info.interface";
-import TournamentInfoScrappingStrategy from "../strategy.interface";
+import TournamentInfoScrapingStrategy from "../strategy.interface";
 
-class WikipediaInfoScrappingStrategy implements TournamentInfoScrappingStrategy {
+class Info01ScrapingStrategy implements TournamentInfoScrapingStrategy {
 
     apply: ($: CheerioAPI) => TournamentInfo = ($: CheerioAPI) => {
         const ths = $('th');
@@ -18,4 +18,4 @@ class WikipediaInfoScrappingStrategy implements TournamentInfoScrappingStrategy 
     };
 };
 
-export default WikipediaInfoScrappingStrategy;
+export default Info01ScrapingStrategy;

@@ -1,6 +1,6 @@
-import ScrappingStrategy from "../../strategy/scrapping-strategy.interface";
+import ScrapingStrategy from "../../strategy/scraping-strategy.interface";
 import TournamentDate from "../tournament-date.interface";
 
-interface TournamentDateScrappingStrategy extends ScrappingStrategy<TournamentDate[]> { }
+interface TournamentDateScrapingStrategy extends ScrapingStrategy<TournamentDate[]> { }
 
-export default TournamentDateScrappingStrategy;
+export default TournamentDateScrapingStrategy;

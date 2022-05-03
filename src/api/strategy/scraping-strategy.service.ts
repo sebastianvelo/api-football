@@ -1,7 +1,7 @@
 import { CheerioAPI } from "cheerio";
-import ScrappingStrategy from "./scrapping-strategy.interface";
+import ScrapingStrategy from "./scraping-strategy.interface";
 
-export const getScrappingStrategy = <T extends ScrappingStrategy<any>>(strategies: T[], query: string, $: CheerioAPI): T => {
+export const getStrategy = <T extends ScrapingStrategy<any>>(strategies: T[], query: string, $: CheerioAPI): T => {
     const strategy = strategies.find(strategy => strategy.appliesTo(query, $));
     if (!strategy) {
         throw new Error(`Strategy not found for query: ${query}`);

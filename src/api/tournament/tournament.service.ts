@@ -1,5 +1,5 @@
 import { CheerioAPI } from "cheerio";
-import { logTitle } from "../../common/Logger";
+import { logAccent, logTitle } from "../../common/Logger";
 import * as PageService from "../page/page.service";
 import Table from "../table/table.interface";
 import * as TableService from "../table/table.service";
@@ -10,10 +10,13 @@ import Tournament from "./tournament.interface";
 
 const getName = (query: string): string => query.replace(/_/g, " ");
 
-const scrapeTournament = (query: string, $: CheerioAPI) => {
+const scrapTournament = (query: string, $: CheerioAPI) => {
+    logAccent(`||||||||||||||||||||||||||||||||||||||||||||||`);
+    logTitle(`Retriving tournament: ${query}`);
     const dates: TournamentDate[] = TournamentDateService.getAllDates(query, $);
     const table: Table = TableService.getTable(query, $);
     const info = TournamentInfoService.getInfo(query, $);
+    logAccent(`||||||||||||||||||||||||||||||||||||||||||||||`);
     return {
         name: getName(query),
         info,
@@ -24,8 +27,7 @@ const scrapeTournament = (query: string, $: CheerioAPI) => {
 
 export const getTournament = async (query: string): Promise<Tournament> => {
     const $ = await PageService.getPage(query);
-    logTitle(`Retriving tournament ${query}`);
-    return scrapeTournament(query, $);
+    return scrapTournament(query, $);
 };
 
 export const getTournaments = async (queries: string[]): Promise<Tournament[]> => {
